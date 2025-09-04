@@ -37,17 +37,3 @@ spec:
  - port: 80
  selector:
    app: demo
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
- name: demo-deployment
- namespace: optimization-demo
-spec:
- scaleTargetRef:
-   apiVersion: apps/v1
-   kind: Deployment
-   name: demo
- minReplicas: 1
- maxReplicas: 3
- targetCPUUtilizationPercentage: 50
